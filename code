@@ -1,0 +1,26 @@
+#include <Servo.h>
+#define FLAME 2
+int servoPin=9;
+int servoPos=90;
+int servoPos2=0;
+Servo myServo;
+
+void setup() {
+
+pinMode(FLAME, INPUT);
+myServo.attach(servoPin);
+ myServo.write(servoPos2);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+ int fire = digitalRead(FLAME);
+ 
+if( fire == HIGH) 
+{
+ myServo.write(servoPos2);
+}else{
+  myServo.write(servoPos);
+}
+delay(200);
+}
